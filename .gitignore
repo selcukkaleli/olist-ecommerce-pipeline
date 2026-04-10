@@ -215,3 +215,5 @@ credentials/
 crash.log
 *.tfvars
 !*.tfvars.example
+
+docker-compose.yml
