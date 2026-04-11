@@ -32,3 +32,14 @@ tasks:
           - gcloud auth activate-service-account --key-file=/tmp/gcp-key.json
           - gsutil cp *.csv gs://olist-ecommerce-pipeline-id-data-lake/raw/olist/
           - echo "Upload complete"
+  - id: run_spark_job
+    type: io.kestra.plugin.scripts.shell.Commands
+    containerImage: olist-ecommerce-pipeline-spark:latest
+    env:
+      GCP_CREDS: "{{kv('GCP_CREDS')}}"
+    commands:
+      - printf '%s' "$GCP_CREDS" > /tmp/gcp-key.json
+      - spark-submit
+          --driver-memory 4g
+          --executor-memory 4g
+          /opt/spark/work/orders_enriched.py

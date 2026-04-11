@@ -11,7 +11,7 @@ spark = SparkSession.builder \
 
 # GCS credentials
 spark.conf.set("google.cloud.auth.service.account.json.keyfile", 
-               "/credentials/gcp-key.json")
+               "/tmp/gcp-key.json")
 spark.conf.set("fs.gs.impl", 
                "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem")
 spark.conf.set("fs.AbstractFileSystem.gs.impl", 
@@ -21,7 +21,7 @@ BUCKET = "olist-ecommerce-pipeline-id-data-lake"
 PROJECT = "olist-ecommerce-pipeline"
 
 #Proje id'yi okuyalım
-with open("/credentials/gcp-key.json") as f:
+with open("/tmp/gcp-key.json") as f:
     creds = json.load(f)
     project_id = creds["project_id"]
     PROJECT = project_id
@@ -124,7 +124,7 @@ df.write \
     .format("bigquery") \
     .option("parentProject", project_id) \
     .option("table", f"{PROJECT}.raw.orders_enriched") \
-    .option("credentialsFile", "/credentials/gcp-key.json") \
+    .option("credentialsFile", "/tmp/gcp-key.json") \
     .option("partitionField", "order_purchase_timestamp") \
     .option("partitionType", "MONTH") \
     .option("clusteredFields", "product_category_name_english,order_status") \
