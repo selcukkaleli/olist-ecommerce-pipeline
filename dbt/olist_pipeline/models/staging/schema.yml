@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: stg_orders_with_details
+    description: "Cleaned and renamed orders data. Grain: one dominant payment method for each order."
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - not_null
+
+      - name: customer_unique_id
+        description: "Unique customer identifier"
+        tests:
+          - not_null
+
+      - name: seller_id
+        description: "Unique seller identifier"
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - not_null
+
+      - name: order_item_id
+        description: "Sequential number identifying number of items included in the same order"
+        tests:
+          - not_null  
+
+      - name: review_id
+        description: "Unique review identifier"
+
+
+      - name: product_category_name_english
+        description: "Category name in English"
+        tests:
+          - not_null
+
+      - name: order_status
+        description: "Reference to the order status (delivered, shipped, etc)."
+        tests:
+          - not_null
+
+      - name: price
+        description: "item price"
+        tests:
+          - not_null
+        
+      - name: freight_value
+        description: "item freight value (if an order has more than one item the freight value is splitted between items)"
+        tests:
+          - not_null
+
+      - name: dominant_payment_method
+        description: "Dominant payment method chosen by the customer."
+        tests:
+          - not_null
+
+      - name: total_payment_value
+        description: "Total amount paid for the order."
+        tests:
+          - not_null
+
+      - name: order_purchase_timestamp
+        description: "Shows the purchase timestamp."
+        tests:
+          - not_null
+
+      - name: order_approved_at
+        description: "Shows the payment approval timestamp."
+        tests:
+          - not_null
+
+      - name: shipping_limit_date
+        description: "Shows the seller shipping limit date for handling the order over to the logistic partner."
+        tests:
+          - not_null
+
+      - name: order_estimated_delivery_date
+        description: "Shows the estimated delivery date that was informed to customer at the purchase moment."
+        tests:
+          - not_null
+
+      - name: order_delivered_carrier_date
+        description: "Shows the order posting timestamp. When it was handled to the logistic partner."
+        tests:
+          - not_null
+      
+      - name: order_delivered_customer_date
+        description: "Shows the actual order delivery date to the customer."
+        tests:
+          - not_null
+    
+      - name: review_score
+        description: "Score given by the customer ranging from 1 to 5."
+
+      - name: review_creation_date
+        description: "Shows the date in which the satisfaction survey was sent to the customer."
+
+      - name: review_answer_timestamp
+        description: "Shows satisfaction survey answer timestamp."   
+
+      - name: seller_zip_code_prefix
+        description: "First 5 digits of seller zip code."
+
+      - name: seller_city
+        description: "Seller city name."
+
+      - name: seller_state
+        description: "Seller state abbreviation."
+
+      - name: customer_zip_code_prefix
+        description: "First 5 digits of customer zip code."
+
+      - name: customer_city
+        description: "Customer city name."
+
+      - name: customer_state
+        description: "Customer state abbreviation."
+
+      

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    database: olist-ecommerce-pipeline-id
+    schema: raw
+    tables:
+      - name: orders_enriched
