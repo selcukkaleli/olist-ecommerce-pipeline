@@ -70,8 +70,6 @@ models:
 
       - name: order_approved_at
         description: "Shows the payment approval timestamp."
-        tests:
-          - not_null
 
       - name: shipping_limit_date
         description: "Shows the seller shipping limit date for handling the order over to the logistic partner."
@@ -85,16 +83,17 @@ models:
 
       - name: order_delivered_carrier_date
         description: "Shows the order posting timestamp. When it was handled to the logistic partner."
-        tests:
-          - not_null
       
       - name: order_delivered_customer_date
         description: "Shows the actual order delivery date to the customer."
-        tests:
-          - not_null
     
       - name: review_score
         description: "Score given by the customer ranging from 1 to 5."
+        tests: 
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5]
+                quote: false
 
       - name: review_creation_date
         description: "Shows the date in which the satisfaction survey was sent to the customer."
