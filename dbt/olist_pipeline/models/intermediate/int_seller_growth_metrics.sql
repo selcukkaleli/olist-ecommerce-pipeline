@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ ref('int_seller_growth_metrics') }}
+    select * from {{ ref('int_seller_monthly_metrics') }}
 ),
 
 final as (
@@ -8,12 +8,11 @@ final as (
         total_item_sold,
         avg_freight_value,
         total_revenue,
-        prev_month_tot_revenue,
-        ((total_revenue - prev_month_tot_revenue) / NULLIF(prev_month_tot_revenue, 0)) * 100 as growth,
+        LAG (total_revenue, 1, 0) OVER (PARTITION BY seller_id ORDER BY order_month ASC) AS prev_month_tot_revenue,
         avg_approving_time,
         avg_delivery_delay,
         avg_review_score,
-        CAST(order_month AS DATE) as order_month
+        order_month
 
     from source
     
