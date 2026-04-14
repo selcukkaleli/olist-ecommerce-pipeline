@@ -11,7 +11,7 @@ E-commerce platforms need to understand which product categories and sellers are
 
 ## Live Dashboard
 
-🛒 [Olist E-Commerce Growth Analysis Dashboard](#) *([link here](https://lookerstudio.google.com/reporting/0017d80f-6a66-4952-a434-7b0454e6d624))*
+🛒 [Olist E-Commerce Growth Analysis Dashboard](https://lookerstudio.google.com/reporting/0017d80f-6a66-4952-a434-7b0454e6d624)
 
 ![Category Dashboard Preview](docs/category_dashboard.png)
 ![Seller Dashboard Preview](docs/seller_dashboard.png)
