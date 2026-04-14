@@ -1,4 +1,4 @@
-# Olist E-Commerce Growth Analysis Pipeline
+# Olist e-Commerce Growth Analysis Pipeline
 
 A data engineering project that transforms Olist's Brazilian e-commerce data into seller and category-level growth insights. It identifies which categories and sellers are growing over time, and whether operational problems — delivery delays, high freight costs — constrain that growth.
 
@@ -85,8 +85,8 @@ Spark joins all 8 source tables into a single denormalized table `raw.orders_enr
 └── marts/
     ├── marts_category_monthly_metrics.sql    # Category trends → Line charts
     ├── marts_seller_monthly_metrics.sql      # Seller trends → Line charts
-    ├── mart_category_growth_summary.sql      # Avg growth per category → Top 10 table
-    └── mart_seller_growth_summary.sql        # Avg growth per seller → Top 10 table
+    ├── mart_category_growth_summary.sql      # Avg growth per category → Top 3 table
+    └── mart_seller_growth_summary.sql        # Avg growth per seller → Top 3 table
 ```
 
 Key transformation decisions:
