@@ -13,7 +13,8 @@ E-commerce platforms need to understand which product categories and sellers are
 
 🛒 [Olist E-Commerce Growth Analysis Dashboard](#) *([link here](https://lookerstudio.google.com/reporting/0017d80f-6a66-4952-a434-7b0454e6d624))*
 
-![Dashboard Preview](docs/dashboard-preview.png)
+![Category Dashboard Preview](docs/category_dashboard.png)
+![Seller Dashboard Preview](docs/seller_dashboard.png)
 
 ## Data Notes
 
@@ -27,7 +28,7 @@ E-commerce platforms need to understand which product categories and sellers are
 
 ## Pipeline Execution (Gantt)
 
-![Pipeline Gantt](docs/pipeline-gantt.png)
+![Pipeline Gantt](docs/kestra-gantt.png)
 
 ## Architecture
 ```
